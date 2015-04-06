@@ -23,6 +23,7 @@
       asset = Sprockets::Asset.new(env, logical_path, pathname)
       manifest[logical_path] = app.config.assets.digest ? asset.digest_path : asset.logical_path
     end
+    manifest[logical_path]
   end
 %>
 
