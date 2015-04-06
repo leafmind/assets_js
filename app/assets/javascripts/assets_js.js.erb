@@ -19,9 +19,10 @@
         next
       end
     end
-
-    asset = Sprockets::Asset.new(env, logical_path, pathname)
-    manifest[logical_path] = app.config.assets.digest ? asset.digest_path : asset.logical_path
+    if !File.extname(pathname).blank?
+      asset = Sprockets::Asset.new(env, logical_path, pathname)
+      manifest[logical_path] = app.config.assets.digest ? asset.digest_path : asset.logical_path
+    end
   end
 %>
 
