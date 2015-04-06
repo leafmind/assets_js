@@ -19,7 +19,7 @@
         next
       end
     end
-    if !File.extname(pathname).blank?
+    if !File.extname(logical_path).blank?
       asset = Sprockets::Asset.new(env, logical_path, pathname)
       manifest[logical_path] = app.config.assets.digest ? asset.digest_path : asset.logical_path
     end
